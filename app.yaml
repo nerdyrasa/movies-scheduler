@@ -1,20 +1,21 @@
 version: 1
 
-days            :     1
+days            :     1   # if this is set to 1, the schedule for the next day will be printed
+                          # change this parameter, to get a different day or set to 0 to get current day's schedule
 
 weekday:
-    open-hr  :    11   #
-    open-min   :    00   #
-    open-offset     :    60   # in minutes
-    setup-time      :    35   # in minutes
-    close-hr :    23
-    close-min  :    00
+    open-hr     :    11   #
+    open-min    :    00   #
+    open-offset :    60   # in minutes
+    setup-time  :    35   # in minutes
+    close-hr    :    23
+    close-min   :    00
 
 weekend:
-    open-hr  :    10   #
-    open-min   :    30   #
-    open-offset     :    60   # in minutes
-    setup-time      :    35   # in minutes
-    close-hr :    23
-    close-min  :    30
+    open-hr     :    10   #
+    open-min    :    30   #
+    open-offset :    60   # in minutes
+    setup-time  :    35   # in minutes
+    close-hr    :    23
+    close-min   :    30
 
