@@ -1,14 +1,20 @@
 version: 1
 
-weekdays:
-    open-time   :     11:00   #
-    open-offset :     60      # in minutes
-    setup-time  :     35      # in minutes
-    close-time  :     23:00
+days            :     1
 
-weekends:
-    open-time   :     10:30
-    open-offset :     60      # in minutes
-    setup-time  :     35      # in minutes
-    close-time  :     23:30
+weekday:
+    open-hr  :    11   #
+    open-min   :    00   #
+    open-offset     :    60   # in minutes
+    setup-time      :    35   # in minutes
+    close-hr :    23
+    close-min  :    00
+
+weekend:
+    open-hr  :    10   #
+    open-min   :    30   #
+    open-offset     :    60   # in minutes
+    setup-time      :    35   # in minutes
+    close-hr :    23
+    close-min  :    30
 
