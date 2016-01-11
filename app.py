@@ -234,11 +234,11 @@ def print_master_schedule(master_schedule):
     :return: no return value
     """
     for key, value in master_schedule.items():
-        print("{} \n".format(get_formatted_date(key)))
+        print("{0} \n".format(get_formatted_date(key)))
         for movie in master_schedule[key]:
-            print("{} - Rated {}, {}".format(movie.movie_title, movie.mpaa_rating, movie.run_time))
+            print("{0} - Rated {1}, {2}".format(movie.movie_title, movie.mpaa_rating, movie.run_time))
             for movie_times in master_schedule[key][movie]:
-                print("\t{} = {}".format(movie_times[0], movie_times[1]))
+                print("\t{0} = {1}".format(movie_times[0], movie_times[1]))
             print()
     return
 
@@ -251,7 +251,7 @@ def main(filename):
     movies = get_movies(filename)
     master_schedule = generate_schedule(movies, opening_time, closing_time, setup_time, schedule_dt)
     print_master_schedule(master_schedule)
-    print("Successfully processed {}".format(filename))
+    print("Successfully processed {0}".format(filename))
     return
 
 def get_config_file_values(weekend_or_weekday, dt):
