@@ -97,30 +97,6 @@ def get_formatted_date(dt):
     return datetime.strftime(dt, '%A %m/%d/%Y')
 
 
-def get_month(dt):
-    """ Transform datetime into numeric month
-    :param dt: datetime
-    :return: int value of the month
-    """
-    return int(datetime.strftime(dt, '%m'))
-
-
-def get_year(dt):
-    """ Transform datetime to numeric year
-    :param dt: datetime
-    :return: int value of year (YYYY)
-    """
-    return int(datetime.strftime(dt, '%Y'))
-
-
-def get_day(dt):
-    """ Transform datetime to numeric day
-    :param dt: datetime
-    :return: int value of day
-    """
-    return int(datetime.strftime(dt, '%d'))
-
-
 def get_show_time(reference_time, duration):
     """ Show times are calculated from a reference time.
     The duration is subtracted from the reference time to give the show time.
@@ -265,15 +241,19 @@ def get_config_file_values(weekend_or_weekday, dt):
                     setup_time - interval in minutes to allow cleanup between movie showings
                     dt - datetime for the day that is being scheduled
     """
-    hr = config[weekend_or_weekday]["open-hr"]
-    min = config[weekend_or_weekday]["open-min"]
-    opening_offset = config[weekend_or_weekday]["open-offset"]
-    opening_time = datetime(get_year(dt), get_month(dt), get_day(dt), hr, min) + timedelta(minutes=opening_offset)
-    hr = config[weekend_or_weekday]["close-hr"]
-    min = config[weekend_or_weekday]["close-min"]
-    closing_time = datetime(get_year(dt), get_month(dt), get_day(dt), hr, min)
-    setup_time = config[weekend_or_weekday]["setup-time"]
-    return opening_time, closing_time, setup_time, dt
+    opening_time = datetime(dt.year,
+                            dt.month,
+                            dt.day,
+                            config[weekend_or_weekday]["open-hr"],
+                            config[weekend_or_weekday]["open-min"]) + timedelta(minutes=config[weekend_or_weekday]["open-offset"])
+
+    closing_time = datetime(dt.year,
+                            dt.month,
+                            dt.day,
+                            config[weekend_or_weekday]["close-hr"],
+                            config[weekend_or_weekday]["close-min"])
+
+    return opening_time, closing_time, config[weekend_or_weekday]["setup-time"], dt
 
 
 def setup():
