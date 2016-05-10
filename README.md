@@ -40,9 +40,7 @@ Additional test files must be in the same directory as app.py
 The configuration file default is set such that the next day's schedule will be printed out to the console.
 If you want to check a different day, change the days parameter in the config file (app.yaml) accordingly. This allows you to test both weekday and weekend business rules.
  
-#### Misc
 
-I welcome any and all feedback to improve the program. Thanks!
  
 
 
